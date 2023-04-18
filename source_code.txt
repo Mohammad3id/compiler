@@ -1,0 +1,26 @@
+int x = 96;
+int i = 5 + 3 / 2 * x;
+int some_VERY_23_variable = 23;
+
+bool something_true = x > 5;
+something_true = x > 6;
+i = 5 + 3 / 2 * x;
+i = x;
+i = 3;
+bool something_false = false;
+something_false = true;
+something_false = false;
+
+print(x > 90);
+
+if (x < 300) {
+    print("x is less than 300");
+    string some_giga_string = "gigachad";
+    if (i < 3) {
+        print("i is less than 3");
+        while (i < 3) {
+            i = i + 1;
+            print("i is still less than 3");
+        }
+    }
+}

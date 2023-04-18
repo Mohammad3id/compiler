@@ -1,0 +1,44 @@
+program 
+    : statement+
+    ;
+
+statement 
+    : 'while' '(' boolean_expression ')' '{' statement* '}'
+    | function_declaration
+    | declaration_expression ';'
+    | assignment_expression ';'
+    ;
+
+function_declaration
+    : "void" " " identifier "()" "{" statement* "}" 
+
+assignment_expression
+    : identifier '=' (value | arithmatic_expression)
+    ;
+
+declaration_expression
+    : 'int' ' ' identifier
+    | 'int' ' ' identifier '=' (value | arithmatic_expression)
+    ;
+
+boolean_expression 
+    : identifier ('<' | '<=' | '>' | '>=' | '==' | '!=') integer_literal
+    ;
+
+arithmatic_expression
+    : value ('*' | '/' | '+' | '-') (arithmatic_expression | value)
+    ;
+
+value 
+    : identifier 
+    | integer_literal
+    ;
+
+identifier 
+    : [a-zA-Z]+
+    ;
+
+
+integer_literal 
+    : [0-9]+
+    ;

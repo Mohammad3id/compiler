@@ -1,0 +1,43 @@
+a(a|b)*b
+
+any string starting with "a", optionally followed by a combination of "a"s and "b"s, and finally ending with "b"
+
+Examples:
+    ab
+    aab
+    abb
+    abab
+    aabb
+    ababbaabb
+
+———————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+aab(aa|bb)+
+
+any string starting with "aab", and followed by a combination of "aa"s and "bb"s
+
+Examples:
+    aabaa
+    aabbb
+    aabaabb
+    aabbbaa
+    aabbbbb
+    aabaaaa
+    aabaaaabbaaaabbaabbbbaabbbb
+
+———————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+a(a|b|c)*
+
+any string starting with "a", and optionally followed by a combination of "a"s, "b"s and "c"s
+
+Examples:
+    a
+    aa
+    ab
+    ac
+    aaaa
+    aacb
+    aabaa
+    abcabacbcabcba
+

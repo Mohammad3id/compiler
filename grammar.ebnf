@@ -1,0 +1,89 @@
+program 
+    : statement+
+    ;
+
+statement 
+    : 'while' '(' boolean_expression ')' '{' statement* '}'
+    | 'if' '(' boolean_expression ')' '{' statement* '}' 
+    | print_expression ';'
+    | assignment_expression ';'
+    | declaration_expression ';'
+    ;
+
+print_expression
+    : 'print' '(' (value | boolean_expression | arithmatic_expression) ')'
+    ;
+
+assignment_expression
+    : variable '=' (value | boolean_expression | arithmatic_expression)
+    ;
+
+declaration_expression
+    : ('int' | 'string' | 'bool') ' ' variable '=' (value | boolean_expression | arithmatic_expression)
+    ;
+
+boolean_expression 
+    : boolean_value
+    | value ('<' | '<=' | '>' | '>=' | '==' | '!=') value
+    ;
+
+arithmatic_expression
+    : integer_value ('*' | '/' | '+' | '-') (arithmatic_expression | integer_value)
+    ;
+
+value 
+    : variable 
+    | string_literal 
+    | integer_literal
+    | boolean_literal
+    ;
+
+string_value 
+    : variable 
+    | string_literal
+    ;
+
+integer_value 
+    : variable 
+    | integer_literal
+    ;
+
+boolean_value
+    : variable
+    | boolean_literal
+    ;
+
+variable 
+    : (lowercase_letter | uppercase_letter) (lowercase_letter | uppercase_letter | digit | '_')+
+    ;
+
+string_literal 
+    : '"' (lowercase_letter | uppercase_letter | digit | ' ')+ '"'
+    ;
+
+integer_literal 
+    : digit+
+    ;
+
+boolean_literal 
+    : 'true'
+    | 'false'
+    ;
+
+lowercase_letter 
+    : 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' 
+    | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' 
+    | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' 
+    | 'v' | 'w' | 'x' | 'y' | 'z'
+    ;
+
+uppercase_letter 
+    : 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' 
+    | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' 
+    | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' 
+    | 'V' | 'W' | 'X' | 'Y' | 'Z'
+    ;
+
+digit 
+    : '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+    ;
